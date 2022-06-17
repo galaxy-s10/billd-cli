@@ -1,0 +1,18 @@
+{
+  "name": "hsscli",
+  "version": "1.0.0",
+  "description": "一个快速创建项目脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^9.3.0",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^8.2.4",
+    "ora": "^6.1.0"
+  }
+}
