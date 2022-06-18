@@ -25,9 +25,8 @@ const promptList = [
     choices: ["vite", "webpack5"],
   },
 ];
-download(vue3Repo, "test/tmp", { clone: true }, function (err, res) {
-  console.log(err ? "Error" : "Success");
-  console.log(res);
+download(vue3Repo).then(() => {
+  console.log("git clone done！！！");
 });
 // inquirer.prompt(promptList).then((answers) => {
 //   console.log(answers); // 返回的结果

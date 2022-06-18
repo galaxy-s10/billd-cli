@@ -1,21 +1,21 @@
 const { promisify } = require("util");
-// const ora = require("ora");
+const ora = require("ora");
 
 const downloadRepo = promisify(require("download-git-repo"));
 
-// const process = ora(`downloading....`);
-
 const download = async (repo) => {
-  //   process.start();
-  let time = +new Date();
-  setInterval(() => {
-    console.log("正在下载");
-  }, 50);
-  await downloadRepo(repo, "test/tmp", { clone: true }, function (err, res) {
-    console.log(err ? "Error" : "Success");
+  const process = ora(`git clone ${repo}, please wait...`);
+  process.start();
+  await downloadRepo(repo, "test/tmp", { clone: true }, function (err) {
+    if (err) {
+      console.log("download-git-repo 错误！");
+      console.log(err);
+    } else {
+      console.log("download-git-repo 成功！");
+      process.stop();
+    }
   });
-  console.log(">>>>>>.");
-  //   process.success();
+  process.stop();
 };
 
 module.exports = {
