@@ -1,14 +1,30 @@
 {
-  "name": "hsscli",
-  "version": "1.0.0",
+  "name": "billd-cli",
+  "version": "0.0.0",
   "description": "一个快速创建项目脚手架",
+  "keywords": [
+    "billd",
+    "cli",
+    "vue3",
+    "react17",
+    "vite2",
+    "webpack5",
+    "template"
+  ],
+  "homepage": "https://github.com/galaxy-s10/billd-cli",
+  "bugs": {
+    "url": "https://github.com/galaxy-s10/billd-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/galaxy-s10/billd-cli"
+  },
+  "license": "ISC",
+  "author": "galaxy-s10",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "commander": "^9.3.0",
     "download-git-repo": "^3.0.2",
