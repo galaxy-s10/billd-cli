@@ -30,6 +30,7 @@
     "download-git-repo": "^3.0.2",
     "execa": "^5",
     "inquirer": "^8.2.4",
+    "node-emoji": "^1.11.0",
     "ora": "^5"
   }
 }

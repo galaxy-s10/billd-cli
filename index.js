@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
 const { download } = require("./utils/download");
+const { commandSpawn } = require("./utils/terminal");
+const { chalkSUCCESS, chalkINFO, chalkERROR, chalkWARN, chalk } = require("./utils/chalkTip");
 const {
   vue3Webpack5Repo,
   vue3Vite2Repo,
@@ -34,8 +36,6 @@ const promptList = [
   },
 ];
 
-console.log(this.run);
-return;
 
 async function yarnInstall(destDir) {
   return await execa("yarn", {
@@ -45,15 +45,14 @@ async function yarnInstall(destDir) {
 }
 
 inquirer.prompt(promptList).then(async (answers) => {
-  console.log(answers); // 返回的结果
   const { projectname, framework, bundle } = answers;
   const destDir = path.resolve(__dirname, projectname);
   let isExit = fs.existsSync(destDir);
   if (isExit) {
-    console.log(destDir + "目录已存在，请先删除该目录或换个项目名称！");
+    console.log(chalkERROR(destDir + "目录已存在，请先删除该目录或换个项目名称！"));
     return;
   } else {
-    console.log(destDir + "目录不存在，继续走");
+    console.log(chalkINFO(`在${destDir}目录创建项目`));
   }
   let repo = null;
   if (framework === "vue3") {
@@ -71,12 +70,23 @@ inquirer.prompt(promptList).then(async (answers) => {
   }
   let err = await download(vue3Vite2Repo, destDir);
   if (err) {
-    console.log("download-git-repo 错误！");
+    console.log(chalkERROR("download-git-repo 错误！"));
     console.log(err);
     return;
   } else {
-    console.log("download-git-repo 成功！");
+    console.log(chalkSUCCESS("download-git-repo 成功！"));
   }
-  console.log("开始安装依赖");
+  console.log(chalkINFO('初始化git仓库...'))
+  await commandSpawn('git', ['init'], { cwd: destDir })
+  console.log(chalkINFO('初始化git仓库完成！'))
+  console.log(chalkINFO('开始安装依赖...'))
   await yarnInstall(destDir);
+  console.log(chalkINFO('安装依赖完成！'))
+  console.log(chalkSUCCESS(`成功创建项目：${chalk.yellow(projectname)}`))
+  console.log(chalkSUCCESS(`开始使用以下命令：`))
+  console.log('')
+  console.log('  ' + chalk.cyan(`${chalk.gray('$')} cd ${projectname}`))
+  console.log('  ' + chalk.cyan(`${chalk.gray('$')} yarn start`))
+  console.log('')
+
 });
