@@ -1,8 +1,10 @@
+
+const { spawn } = require('child_process');
+const execa = require("execa");
+
 /**
  * 执行终端命令相关的代码
  */
-const { spawn } = require('child_process');
-
 const commandSpawn = (...args) => {
   return new Promise((resolve, reject) => {
     const childProcess = spawn(...args);
@@ -14,7 +16,18 @@ const commandSpawn = (...args) => {
   })
 }
 
+/**
+ * 执行终端命令相关的代码
+ */
+const commandExec = (str) => {
+  return execa(str, {
+    cwd: destDir,
+    stdio: [2, 2, 2],
+  });
+}
+
 
 module.exports = {
-  commandSpawn
+  commandSpawn,
+  commandExec
 }
