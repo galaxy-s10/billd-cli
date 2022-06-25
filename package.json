@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/galaxy-s10/billd-cli/issues"
   },
+  "bin": {
+    "billd": "index.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/galaxy-s10/billd-cli"
@@ -30,6 +33,7 @@
     "download-git-repo": "^3.0.2",
     "execa": "^5",
     "inquirer": "^8.2.4",
+    "leven": "^3",
     "node-emoji": "^1.11.0",
     "ora": "^5"
   }
