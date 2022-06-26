@@ -1,11 +1,19 @@
-const { chalk } = require("./utils/chalkTip");
+#!/usr/bin/env node
+
+const { chalk } = require("../utils/chalkTip");
 const program = require('commander');
 const leven = require('leven');
-const { createAction } = require('./actions/create')
+const { createAction } = require('../core/actions/create')
+const { helpOptions } = require('../core/help')
+
+// 帮助和可选信息
+helpOptions();
 
 program
-    .command('create <project> [others...]')
-    .description('create a awesome project!')
+    .command('create <app-name>')
+    .description('create a new project powered by billd-cli')
+    .option('-f, --force', 'Overwrite target directory if it exists')
+    .option('-m, --merge', 'Merge target directory if it exists')
     .action(createAction);
 
 
