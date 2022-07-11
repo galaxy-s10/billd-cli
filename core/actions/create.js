@@ -6,8 +6,8 @@ const { chalkSUCCESS, chalkINFO, chalkERROR, chalkWARN, chalk } = require("../..
 const {
     vue3Webpack5Repo,
     vue3Vite2Repo,
-    react17Vite2Repo,
     react17Webpack5Repo,
+    noFrameRepo
 } = require("../../repo/index");
 
 const fs = require("fs-extra");
@@ -60,6 +60,15 @@ const createAction = async (project, options) => {
         }
     }
     clearConsole(chalk.bold.blue(`Billd CLI v${pkgVersion}`))
+    const framePromptList = [
+        {
+            type: "list",
+            message: "Please select a frontend frame",
+            name: "framework",
+            default: "vue3", // 默认值
+            choices: ["vue3", "react17", "noframe"],
+        }
+    ]
     const promptList = [
         // {
         //     type: "input",
@@ -69,17 +78,40 @@ const createAction = async (project, options) => {
         // },
         {
             type: "list",
-            message: "Please select a frontend frame",
-            name: "framework",
-            default: "vue3", // 默认值
-            choices: ["vue3", "react17"],
+            message: "Please select a language",
+            name: "language",
+            default: "typescript", // 默认值
+            choices: ["typescript"],
+        },
+        {
+            type: "list",
+            message: "Please select a css pre-processor",
+            name: "cssPre",
+            default: "scss", // 默认值
+            // choices: ["Sass/SCSS (with dart-sass)", 'Less', "Stylus"],
+            choices: [
+                {
+                    name: 'Sass/SCSS (with dart-sass)',// 用户选择是显示的值
+                    value: 'scss',// 实际的值
+                    short: 'scss',// 回车后显示的值
+                    checked: true,// 默认选中
+                },
+                // {
+                //     name: 'Less',
+                //     value: 'less',
+                //     short: 'Less',
+                // },
+                // {
+                //     name: 'Stylus',
+                //     value: 'stylus',
+                //     short: 'stylus',
+                // },
+            ],
         },
         {
             type: "list",
             message: "Please select a build tool",
             name: "bundle",
-            default: "vite2", // 默认值
-            choices: ["vite2", "webpack5"],
         },
         {
             name: 'config',
@@ -89,45 +121,63 @@ const createAction = async (project, options) => {
                 {
                     name: 'Eslint',
                     value: 'eslint',
-                    short: 'Eslint',//回车后显示
-                    checked: true,//默认选中
+                    short: 'eslint',
+                    checked: true,
                 },
                 {
                     name: 'Prettier',
                     value: 'prettier',
-                    short: 'Prettier',
-                    checked: true,//默认选中
+                    short: 'prettier',
+                    checked: true,
                 },
                 {
-                    name: 'commitizen',
+                    name: 'Commitizen',
                     value: 'commitizen',
                     short: 'commitizen',
                 },
                 {
-                    name: 'lint-staged',
+                    name: 'Lint-staged',
                     value: 'lint-staged',
                     short: 'lint-staged',
                 },
                 {
-                    name: 'standard-version',
+                    name: 'Standard-version',
                     value: 'standard-version',
                     short: 'standard-version',
                 },
                 {
-                    name: 'husky',
+                    name: 'Husky',
                     value: 'husky',
                     short: 'husky',
                 }
             ]
         },
-
     ];
 
 
+    const { framework } = await inquirer.prompt(framePromptList)
+
+    // 如果选择的是noframe，构建工具只有webpack5
+    if (framework === 'noframe') {
+        promptList.forEach(item => {
+            if (item.name === 'bundle') {
+                item.default = "webpack5"
+                item.choices = ["webpack5"]
+            }
+        })
+    } else {
+        promptList.forEach(item => {
+            if (item.name === 'bundle') {
+                item.default = "vite2"
+                item.choices = ["webpack5", "vite2",]
+            }
+        })
+    }
+
     inquirer.prompt(promptList).then(async (answers) => {
         const projectname = project
-        const { framework, bundle } = answers;
-
+        const { bundle } = answers;
+        console.log(answers, '22222')
         let repo = null;
         if (framework === "vue3") {
             if (bundle === "vite2") {
@@ -137,11 +187,15 @@ const createAction = async (project, options) => {
             }
         } else if (framework === "react17") {
             if (bundle === "vite2") {
-                repo = react17Vite2Repo;
+                console.log(chalkERROR("暂不支持vite2+react17~"));
+                return
             } else if (bundle === "webpack5") {
                 repo = react17Webpack5Repo;
             }
+        } else if (framework === 'noframe') {
+            repo = noFrameRepo;
         }
+
         let err = await download(repo, destDir);
         if (err) {
             console.log(chalkERROR("download-git-repo 错误！"));
