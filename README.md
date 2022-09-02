@@ -95,7 +95,7 @@ billd create projectname --force
 4. git tag v 当前版本
 
 ```sh
-yarn run release
+npm run release
 ```
 
 # 发布 npm 版本
@@ -106,8 +106,10 @@ yarn run release
 2. git push origin v 当前版本
 3. npm publish
 
+> 注意:如果是使用 yarn run publish，请确保执行前 yarn 的镜像是 npm 官方镜像：https://registry.npmjs.org/
+
 ```sh
-yarn run publish
+npm run publish
 ```
 
 # 源码
