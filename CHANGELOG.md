@@ -1,3 +1,12 @@
+## [0.0.8](https://github.com/galaxy-s10/billd-cli/compare/v0.0.7...v0.0.8) (2022-09-02)
+
+
+### fix
+
+* 修改脚本 ([6b18590](https://github.com/galaxy-s10/billd-cli/commit/6b185906eff9a2f095797e2f39cc939501602bf4))
+
+
+
 ## [0.0.7](https://github.com/galaxy-s10/billd-cli/compare/v0.0.6...v0.0.7) (2022-09-02)
 
 
