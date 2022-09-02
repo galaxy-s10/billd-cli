@@ -1,3 +1,12 @@
+## [0.0.11](https://github.com/galaxy-s10/billd-cli/compare/v0.0.10...v0.0.11) (2022-09-02)
+
+
+### fix
+
+* 修改依赖 ([59520b4](https://github.com/galaxy-s10/billd-cli/commit/59520b44e662fec4045b2f48f55b2a2012a43f4b))
+
+
+
 ## [0.0.10](https://github.com/galaxy-s10/billd-cli/compare/v0.0.9...v0.0.10) (2022-09-02)
 
 
