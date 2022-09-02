@@ -106,10 +106,10 @@ npm run release
 2. git push origin v 当前版本
 3. npm publish
 
-> 注意:如果是使用 yarn run publish，请确保执行前 yarn 的镜像是 npm 官方镜像：https://registry.npmjs.org/
+> 注意:如果是使用 yarn run publish，请确保执行前 yarn 的镜像是 npm 官方镜像：https://registry.npmjs.org/ ，为什么起 mypublish 这个名称，是因为如果是 publish 的话，会递归的执行改脚本！
 
 ```sh
-npm run publish
+npm run mypublish
 ```
 
 # 源码
