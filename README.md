@@ -85,6 +85,31 @@ billd create projectname -f
 billd create projectname --force
 ```
 
+# 本地更新版本
+
+> 会做以下事情：
+
+1. 更新 package.json 的 version
+2. 生成 changelog
+3. git commit -m 'chore(release): v 当前版本'
+4. git tag v 当前版本
+
+```sh
+yarn run release
+```
+
+# 发布 npm 版本
+
+> 会做以下事情：
+
+1. git push
+2. git push origin v 当前版本
+3. npm publish
+
+```sh
+yarn run publish
+```
+
 # 源码
 
 [https://github.com/galaxy-s10/billd-cli](https://github.com/galaxy-s10/billd-cli)
