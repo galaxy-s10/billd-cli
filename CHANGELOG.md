@@ -1,3 +1,12 @@
+## [0.0.5](https://github.com/galaxy-s10/billd-cli/compare/v0.0.4...v0.0.5) (2022-09-02)
+
+
+### docs
+
+* 修改readme ([fc34980](https://github.com/galaxy-s10/billd-cli/commit/fc34980cbbb77c9c026df89644c2b17f9f465878))
+
+
+
 ## [0.0.4](https://github.com/galaxy-s10/billd-cli/compare/v0.0.3...v0.0.4) (2022-09-02)
 
 
