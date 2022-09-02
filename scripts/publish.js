@@ -5,7 +5,6 @@ const { chalkSUCCESS } = require("../utils/chalkTip");
 
 const command = 'npm publish';
 
-// git push
 execSync(`git push origin v${pkg.version}`, { stdio: 'inherit' });
 execSync(`git push`, { stdio: 'inherit' });
 
