@@ -28,7 +28,8 @@
     "changelog": "conventional-changelog -n ./changelog.option.js -p eslint -i CHANGELOG.md -s",
     "changelog:first": "conventional-changelog -n ./changelog.option.js -p eslint -i CHANGELOG.md -s -r 0",
     "commit": "cz",
-    "release": "node scripts/release.js"
+    "release": "node scripts/release.js",
+    "publish": "node scripts/publish.js"
   },
   "config": {
     "commitizen": {

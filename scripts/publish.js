@@ -15,4 +15,4 @@ execSync(command, {
   cwd: path.resolve(__dirname, '../'),
 });
 
-console.log(chalkSUCCESS(`Published @huangshuisheng/${name}`));
+console.log(chalkSUCCESS(`Published ${pkg.name}`));
