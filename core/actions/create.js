@@ -177,7 +177,6 @@ const createAction = async (project, options) => {
     inquirer.prompt(promptList).then(async (answers) => {
         const projectname = project
         const { bundle } = answers;
-        console.log(answers, '22222')
         let repo = null;
         if (framework === "vue3") {
             if (bundle === "vite2") {
