@@ -3,8 +3,7 @@ const { execSync } = require('child_process')
 const pkg = require('../package.json')
 const { chalkSUCCESS } = require("../utils/chalkTip");
 
-// 发布私有包需要添加--access public
-const command = 'npm publish --access public';
+const command = 'npm publish';
 
 // git push
 execSync(`git push origin v${pkg.version}`, { stdio: 'inherit' });
