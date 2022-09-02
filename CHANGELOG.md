@@ -1,3 +1,12 @@
+## [0.0.7](https://github.com/galaxy-s10/billd-cli/compare/v0.0.6...v0.0.7) (2022-09-02)
+
+
+### test
+
+* 测试发布脚本 ([8cdd31f](https://github.com/galaxy-s10/billd-cli/commit/8cdd31f4c7cf55fa752fd16c578694f036487a5b))
+
+
+
 ## [0.0.6](https://github.com/galaxy-s10/billd-cli/compare/v0.0.5...v0.0.6) (2022-09-02)
 
 
