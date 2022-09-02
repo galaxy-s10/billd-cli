@@ -1,3 +1,12 @@
+## [0.0.6](https://github.com/galaxy-s10/billd-cli/compare/v0.0.5...v0.0.6) (2022-09-02)
+
+
+### fix
+
+* 删除注释 ([5b94ea4](https://github.com/galaxy-s10/billd-cli/commit/5b94ea4e751b930ccf1561e828ff30bdc96e2e16))
+
+
+
 ## [0.0.5](https://github.com/galaxy-s10/billd-cli/compare/v0.0.4...v0.0.5) (2022-09-02)
 
 
