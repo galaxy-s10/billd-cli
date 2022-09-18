@@ -1,3 +1,12 @@
+## [0.0.12](https://github.com/galaxy-s10/billd-cli/compare/v0.0.11...v0.0.12) (2022-09-18)
+
+
+### fix
+
+* 修改错别字 ([8b98cb5](https://github.com/galaxy-s10/billd-cli/commit/8b98cb5d9ad7ddff507a2b45f7f3a772be7b6d2b))
+
+
+
 ## [0.0.11](https://github.com/galaxy-s10/billd-cli/compare/v0.0.10...v0.0.11) (2022-09-02)
 
 
