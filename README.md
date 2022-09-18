@@ -21,13 +21,14 @@
 <a href="https://www.npmjs.com/package/billd-cli"><img src="https://img.shields.io/npm/v/billd-cli.svg" alt="Version"></a>
 <a href="https://www.npmjs.com/package/billd-cli"><img src="https://img.shields.io/npm/l/billd-cli.svg" alt="License"></a>
 </div>
+
 # 简介
 
 这是一个快速创建项目的脚手架，核心只做了一件事情：根据你选择的选项，拉取对应的代码到本地。
 
 以下是目前支持的模板代码仓库：
 
-| 模板                                                                                         | 支持 |
+| 模板仓库                                                                                     | 支持 |
 | -------------------------------------------------------------------------------------------- | ---- |
 | [webpack5 + ts + vue3](https://github.com/galaxy-s10/vue3-webpack5-template)                 | ✅   |
 | [webpack5 + ts + react17](https://github.com/galaxy-s10/react17-webpack5-template)           | ✅   |
