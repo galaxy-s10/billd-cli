@@ -1,3 +1,12 @@
+## [0.0.14](https://github.com/galaxy-s10/billd-cli/compare/v0.0.13...v0.0.14) (2022-09-18)
+
+
+### fix
+
+* 修改readme ([ce72049](https://github.com/galaxy-s10/billd-cli/commit/ce72049d0245196b23a228a472a9a33b709a29df))
+
+
+
 ## [0.0.13](https://github.com/galaxy-s10/billd-cli/compare/v0.0.12...v0.0.13) (2022-09-18)
 
 

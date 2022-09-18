@@ -1,6 +1,6 @@
 {
   "name": "billd-cli",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "A cli for quickly create project",
   "keywords": [
     "billd",
