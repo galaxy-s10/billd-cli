@@ -17,8 +17,8 @@
 </p>
 
 <div align="center">
-<a href="https://www.npmjs.com/package/billd-cli"><img src="https://img.shields.io/npm/dw/billd-cli.svg" alt="Downloads"></a>
 <a href="https://www.npmjs.com/package/billd-cli"><img src="https://img.shields.io/npm/v/billd-cli.svg" alt="Version"></a>
+<a href="https://www.npmjs.com/package/billd-cli"><img src="https://img.shields.io/npm/dw/billd-cli.svg" alt="Downloads"></a>
 <a href="https://www.npmjs.com/package/billd-cli"><img src="https://img.shields.io/npm/l/billd-cli.svg" alt="License"></a>
 </div>
 
