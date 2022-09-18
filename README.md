@@ -114,12 +114,16 @@ css 预处理器（可选）：
 - [x] lint-staged ✅
 - [x] standard-version ✅
 
-# 如何更新版本
+# 如何发版
 
-## 1.执行更新脚本
+## 0.确保 git 工作区干净
+
+即 git status 的时候显示：`nothing to commit, working tree clean` ，否则会导致执行 `release:local` 脚本失败
+
+## 1.执行本地发版脚本
 
 ```sh
-npm run release
+npm run release:local
 ```
 
 > 该脚本内部会做以下事情：
@@ -129,13 +133,12 @@ npm run release
 3. 提交暂存区到本地仓库：git commit -m 'chore(release): v 当前版本'
 4. 生成当前版本 tag：git tag v 当前版本
 
-## 2.执行发布脚本
+## 2.执行线上发版脚本
 
-> 注意：如果你使用 yarn run mypublish，请确保执行前 yarn 的镜像是 npm 官方镜像：https://registry.npmjs.org/
-> ps：为什么起 mypublish 这个名称，是因为如果是 publish 的话（即类似 yarn run publish），会递归的执行该脚本！
+> 注意：如果你使用 yarn run release:online，请确保执行前 yarn 的镜像是 npm 官方镜像：https://registry.npmjs.org/
 
 ```sh
-npm run mypublish
+npm run release:online
 ```
 
 > 该脚本内部会做以下事情：

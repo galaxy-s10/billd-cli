@@ -1,7 +1,8 @@
 const path = require('path')
 const inquirer = require('inquirer')
 const semver = require('semver')
-const { execSync } = require('child_process')
+const pkg = require('../package.json')
+const { execSync, exec } = require('child_process')
 const { readJSONSync, writeJSONSync } = require('fs-extra')
 const { updatePackageJSON } = require('./update')
 const { chalkERROR, chalkINFO } = require("../utils/chalkTip");
@@ -42,7 +43,7 @@ const selectReleaseVersion = async () => {
   ]);
 
   if (confirmRelease) {
-    console.log(chalkINFO(`开始发布v${targetVersion}...`));
+    console.log(chalkINFO(`开始本地发布${pkg.name}@${targetVersion}...`));
 
     // 更新根目录的package.json版本号
     writeJSONSync(
@@ -66,10 +67,33 @@ const selectReleaseVersion = async () => {
     // git tag
     execSync(`git tag v${targetVersion}`, { stdio: 'inherit' });
   } else {
-    console.log(chalkERROR(`取消发布！`));
+    console.log(chalkERROR(`取消本地发布${pkg.name}@${targetVersion}！`));
   }
 };
 
+function gitIsClean() {
+  return new Promise((resolve, reject) => {
+    exec('git status -s', (error, stdout, stderr) => {
+      if (error || stderr) {
+        reject(error || stderr)
+      }
+      if (stdout.length) {
+        reject('请确保git工作区干净！')
+      } else {
+        resolve('ok')
+      }
+    });
+  })
+}
+
 (async () => {
-  await selectReleaseVersion();
+  try {
+    await gitIsClean()
+    await selectReleaseVersion();
+    console.log(chalkERROR(`本地发布${pkg.name}@${pkg.version}成功！`));
+  } catch (error) {
+    console.log(chalkERROR(`！！！本地发布${pkg.name}失败！！！`));
+    console.log(error)
+    console.log(chalkERROR(`！！！本地发布${pkg.name}失败！！！`));
+  }
 })();
