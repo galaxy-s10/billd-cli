@@ -1,3 +1,26 @@
+<p align="center">
+  <a href="">
+    <img
+      width="200"
+      src="https://resource.hsslive.cn/image/1613141138717Billd.webp"
+      alt="Billd-CLI logo"
+    />
+  </a>
+</p>
+
+<h1 align="center">
+  Billd-CLI
+</h1>
+
+<p align="center">
+一个快速创建项目的脚手架
+</p>
+
+<div align="center">
+<a href="https://www.npmjs.com/package/billd-cli"><img src="https://img.shields.io/npm/dw/billd-cli.svg" alt="Downloads"></a>
+<a href="https://www.npmjs.com/package/billd-cli"><img src="https://img.shields.io/npm/v/billd-cli.svg" alt="Version"></a>
+<a href="https://www.npmjs.com/package/billd-cli"><img src="https://img.shields.io/npm/l/billd-cli.svg" alt="License"></a>
+</div>
 # 简介
 
 这是一个快速创建项目的脚手架，核心只做了一件事情：根据你选择的选项，拉取对应的代码到本地。
@@ -12,7 +35,49 @@
 - [ ] nuxt3+vue3 ❌
 - [ ] next12+react18 ❌
 
-# 功能
+# 安装
+
+```sh
+npm i billd-cli -g
+```
+
+# 使用
+
+## version
+
+> 查看版本号
+
+```sh
+billd -v
+# 或者
+billd --version
+```
+
+## create
+
+> 创建项目
+
+```sh
+billd create projectname
+```
+
+如果当前目录已存在 projectname，可以手动指定覆盖或者合并（如果不指定的话，billd-cli 也会自动判断是否已存在，会提示用户选择合并或者覆盖）
+
+```sh
+# 合并
+billd create projectname -m
+# 或者
+billd create projectname --merge
+```
+
+```sh
+# 覆盖
+billd create projectname -f
+# 或者
+billd create projectname --force
+```
+
+# 目前集成
 
 前端框架（可选）：
 
@@ -49,68 +114,35 @@ css 预处理器（可选）：
 - [x] lint-staged ✅
 - [x] standard-version ✅
 
-# 安装
+# 如何更新版本
 
-```sh
-npm i billd-cli -g
-```
-
-# 快速上手
-
-## 查看版本号
-
-```sh
-billd -v
-```
-
-## create
-
-```sh
-billd create projectname
-```
-
-如果当前目录已存在 projectname，可以手动指定覆盖或者合并（当然了不指定的话也会自动判断是否已存在，然后提示用户选择合并或者覆盖）
-
-```sh
-# 合并
-billd create projectname -m
-# or
-billd create projectname --merge
-```
-
-```sh
-# 覆盖
-billd create projectname -f
-# or
-billd create projectname --force
-```
-
-# 本地更新版本
-
-> 会做以下事情：
-
-1. 更新 package.json 的 version
-2. 生成 changelog
-3. git commit -m 'chore(release): v 当前版本'
-4. git tag v 当前版本
+## 1.执行更新脚本
 
 ```sh
 npm run release
 ```
 
-# 发布 npm 版本
+> 该脚本内部会做以下事情：
 
-> 会做以下事情：
+1. 根据用户选择的版本，更新 package.json 的 version
+2. 对比当前版本与上个版本的差异，生成 changelog
+3. 提交暂存区到本地仓库：git commit -m 'chore(release): v 当前版本'
+4. 生成当前版本 tag：git tag v 当前版本
 
-1. git push
-2. git push origin v 当前版本
-3. npm publish
+## 2.执行发布脚本
 
-> 注意:如果是使用 yarn run publish，请确保执行前 yarn 的镜像是 npm 官方镜像：https://registry.npmjs.org/ ，为什么起 mypublish 这个名称，是因为如果是 publish 的话，会递归的执行改脚本！
+> 注意：如果你使用 yarn run mypublish，请确保执行前 yarn 的镜像是 npm 官方镜像：https://registry.npmjs.org/
+> ps：为什么起 mypublish 这个名称，是因为如果是 publish 的话（即类似 yarn run publish），会递归的执行该脚本！
 
 ```sh
 npm run mypublish
 ```
+
+> 该脚本内部会做以下事情：
+
+1. 提交当前版本：git push
+2. 提交当前版本 tag：git push origin v 当前版本
+3. 发布 npm：npm publish
 
 # 源码
 
