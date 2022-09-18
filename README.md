@@ -27,13 +27,15 @@
 
 以下是目前支持的模板代码仓库：
 
-- [x] [webpack5+noframe](https://github.com/galaxy-s10/webpack5-multi-page-template) ✅
-- [x] [webpack5+vue3](https://github.com/galaxy-s10/vue3-webpack5-template) ✅
-- [x] [webpack5+react17](https://github.com/galaxy-s10/react17-webpack5-template) ✅
-- [x] [vite2+vue3](https://github.com/galaxy-s10/vue3-webpack5-template/tree/vite2-version) ✅
-- [ ] vite2+react17 ❌
-- [ ] nuxt3+vue3 ❌
-- [ ] next12+react18 ❌
+| 模板                                                                                         | 支持 |
+| -------------------------------------------------------------------------------------------- | ---- |
+| [webpack5 + ts + vue3](https://github.com/galaxy-s10/vue3-webpack5-template)                 | ✅   |
+| [webpack5 + ts + react17](https://github.com/galaxy-s10/react17-webpack5-template)           | ✅   |
+| [webpack5 + ts + noframe](https://github.com/galaxy-s10/webpack5-multi-page-template)        | ✅   |
+| [vite2 + ts + vue3](https://github.com/galaxy-s10/vue3-webpack5-template/tree/vite2-version) | ✅   |
+| vite2+react17                                                                                | ❌   |
+| nuxt3+vue3                                                                                   | ❌   |
+| next12+react18                                                                               | ❌   |
 
 # 安装
 
@@ -81,44 +83,56 @@ billd create projectname --force
 
 前端框架（可选）：
 
-- [x] vue3 ✅
-- [x] react17 ✅
-- [x] noframe ✅
+| 前端框架 | 支持 |
+| -------- | ---- |
+| vue3     | ✅   |
+| react17  | ✅   |
+| noframe  | ✅   |
 
 构建工具（可选）：
 
-- [x] webpack5 ✅
-- [x] vite2 ✅
+| 构建工具 | 支持 |
+| -------- | ---- |
+| webpack5 | ✅   |
+| vite2    | ✅   |
 
 开发语言（可选）：
 
-- [ ] javascript ❌
-- [x] typescript ✅
+| 开发语言   | 支持 |
+| ---------- | ---- |
+| javascript | ❌   |
+| typescript | ✅   |
 
 css 预处理器（可选）：
 
-- [x] sass/scss ✅
-- [ ] less ❌
-- [ ] stylus ❌
+| css 预处理器 | 支持 |
+| ------------ | ---- |
+| sass/scss    | ✅   |
+| less         | ❌   |
+| stylus       | ❌   |
 
 代码规范（内置）：
 
-- [x] eslint ✅
-- [x] prettier ✅
+| 代码规范 | 支持 |
+| -------- | ---- |
+| eslint   | ✅   |
+| prettier | ✅   |
 
-规范配置（内置）：
+工程化配置（内置）：
 
-- [x] husky ✅
-- [x] commitizen ✅
-- [x] commitlint ✅
-- [x] lint-staged ✅
-- [x] standard-version ✅
+| 工程化配置       | 支持 |
+| ---------------- | ---- |
+| husky            | ✅   |
+| commitizen       | ✅   |
+| commitlint       | ✅   |
+| lint-staged      | ✅   |
+| standard-version | ✅   |
 
 # 如何发版
 
 ## 0.确保 git 工作区干净
 
-即 git status 的时候显示：`nothing to commit, working tree clean` ，否则会导致执行 `release:local` 脚本失败
+即确保本地的修改已全部提交（git status 的时候会显示：`nothing to commit, working tree clean` ），否则会导致执行 `release:local` 脚本失败
 
 ## 1.执行本地发版脚本
 
