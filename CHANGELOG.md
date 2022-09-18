@@ -1,3 +1,21 @@
+## [0.0.13](https://github.com/galaxy-s10/billd-cli/compare/v0.0.12...v0.0.13) (2022-09-18)
+
+
+### docs
+
+* 优化readme ([f5aec66](https://github.com/galaxy-s10/billd-cli/commit/f5aec662547bf5e03c1e2bfc63476c649f561b77))
+
+### feat
+
+* 修改readme ([d9f8bd2](https://github.com/galaxy-s10/billd-cli/commit/d9f8bd2b1b877bf11f0ab4a60e51d795fe12a38b))
+* 优化脚本 ([3bd4c44](https://github.com/galaxy-s10/billd-cli/commit/3bd4c44270cb5c1544dc6b93e8948fe9d6b7f94e))
+
+### fix
+
+* 修改打印 ([0010695](https://github.com/galaxy-s10/billd-cli/commit/00106951ad74a9b3673481c9a0158aedd55aeadc))
+
+
+
 ## [0.0.12](https://github.com/galaxy-s10/billd-cli/compare/v0.0.11...v0.0.12) (2022-09-18)
 
 
