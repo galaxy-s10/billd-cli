@@ -1,12 +1,11 @@
 const path = require('path')
 const inquirer = require('inquirer')
 const semver = require('semver')
-const pkg = require('../package.json')
 const { execSync, exec } = require('child_process')
 const { readJSONSync, writeJSONSync } = require('fs-extra')
 const { updatePackageJSON } = require('./update')
 const { chalkERROR, chalkINFO, chalkSUCCESS } = require("../utils/chalkTip");
-const { version: currentVersion } = readJSONSync('package.json'); // 项目根目录的package.json
+const { name: pkgName, version: currentVersion } = readJSONSync('package.json'); // 项目根目录的package.json
 
 // scripts/release.js只是实现了release-it的基本功能
 
@@ -21,6 +20,7 @@ const versionChoices = [
 ];
 
 const inc = (i) => semver.inc(currentVersion, i, preId);
+let targetVersion;
 const selectReleaseVersion = async () => {
   const { release } = await inquirer.prompt([
     {
@@ -31,7 +31,7 @@ const selectReleaseVersion = async () => {
     },
   ]);
   const pkg = readJSONSync(path.resolve(__dirname, '../package.json')); // 项目根目录的package.json
-  const targetVersion = release.match(/\((.*)\)/)[1];
+  targetVersion = release.match(/\((.*)\)/)[1];
 
   const { confirmRelease } = await inquirer.prompt([
     {
@@ -90,10 +90,10 @@ function gitIsClean() {
   try {
     await gitIsClean()
     await selectReleaseVersion();
-    console.log(chalkSUCCESS(`本地发布${pkg.name}@${pkg.version}成功！`));
+    console.log(chalkSUCCESS(`本地发布${pkgName}@${targetVersion}成功！`));
   } catch (error) {
-    console.log(chalkERROR(`！！！本地发布${pkg.name}失败！！！`));
+    console.log(chalkERROR(`！！！本地发布${pkgName}@${targetVersion}失败！！！`));
     console.log(error)
-    console.log(chalkERROR(`！！！本地发布${pkg.name}失败！！！`));
+    console.log(chalkERROR(`！！！本地发布${pkgName}@${targetVersion}失败！！！`));
   }
 })();
